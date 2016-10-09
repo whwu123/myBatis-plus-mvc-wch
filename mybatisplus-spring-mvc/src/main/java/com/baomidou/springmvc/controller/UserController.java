@@ -30,7 +30,7 @@ public class UserController extends BaseController {
     @RequestMapping("/")
     public ModelAndView index(ModelAndView modelAndView) {
         modelAndView.setViewName("index");
-        modelAndView.addObject("userList", userService.selectList(new EntityWrapper<User>()));
+        modelAndView.addObject("userList", userService.selectList(null));
         return modelAndView;
     }
 
