@@ -1,14 +1,14 @@
 package com.baomidou.springmvc.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.springmvc.model.system.User;
-import com.baomidou.springmvc.service.system.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.baomidou.springmvc.model.system.User;
+import com.baomidou.springmvc.service.system.IUserService;
 
 /**
  * Author: D.Yang
@@ -49,7 +49,7 @@ public class UserController extends BaseController {
         if (user.getId() == null) {
             return userService.insert(user) ? renderSuccess("添加成功") : renderError("添加失败");
         } else {
-            return userService.updateSelectiveById(user) ? renderSuccess("修改成功") : renderError("修改失败");
+            return userService.updateById(user) ? renderSuccess("修改成功") : renderError("修改失败");
         }
     }
 
