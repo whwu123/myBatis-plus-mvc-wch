@@ -15,11 +15,9 @@ import com.baomidou.mybatisplus.annotations.TableName;
 @TableName("sys_user")
 public class User implements Serializable {
 
-	@TableField(exist = false)
 	private static final long serialVersionUID = 1L;
 
 	/** 用户ID */
-	@TableId
 	private Long id;
 
 	/** 用户名 */
