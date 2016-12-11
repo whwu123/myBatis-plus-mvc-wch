@@ -16,6 +16,11 @@ import com.baomidou.springmvc.service.system.IUserService;
  * Date: 16/10/9
  * Time: 上午11:58
  * Describe: 用户控制器
+ * 
+ * 代码生成器，参考源码测试用例：
+ * 
+ * /mybatis-plus/src/test/java/com/baomidou/mybatisplus/test/generator/MysqlGenerator.java
+ *
  */
 @Controller
 public class UserController extends BaseController {
