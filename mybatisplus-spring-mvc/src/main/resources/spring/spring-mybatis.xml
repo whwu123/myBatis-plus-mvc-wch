@@ -48,7 +48,7 @@
         <property name="filters" value="mergeStat"/>
     </bean>
 
-    <!-- Spring整合Mybatis -->
+    <!-- Spring整合Mybatis，更多查看文档：http://mp.baomidou.com -->
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描Mapping.xml文件 -->
@@ -63,7 +63,33 @@
                 </bean>
             </array>
         </property>
-    </bean>
+	    <!-- 全局配置注入 -->
+	    <property name="globalConfig" ref="globalConfig" />
+	</bean>
+	<bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
+	    <!-- 
+			AUTO->`0`("数据库ID自增")
+		 	INPUT->`1`(用户输入ID")
+			ID_WORKER->`2`("全局唯一ID")
+			UUID->`3`("全局唯一ID")
+		-->
+	    <property name="idType" value="2" />
+		<!--
+			MYSQL->`mysql`
+			ORACLE->`oracle`
+			DB2->`db2`
+			H2->`h2`
+			HSQL->`hsql`
+			SQLITE->`sqlite`
+			POSTGRE->`postgresql`
+			SQLSERVER2005->`sqlserver2005`
+			SQLSERVER->`sqlserver`
+		-->
+		<!-- Oracle需要添加该项 -->
+	    <!-- <property name="dbType" value="oracle" /> -->
+	    <!-- 全局表为下划线命名设置 true -->
+	    <!-- <property name="dbColumnUnderline" value="true" /> -->
+	</bean>
 
     <!-- MyBatis 动态扫描  -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
