@@ -17,7 +17,7 @@
 
 Mybatis 增强工具包 - 只做增强不做改变，简化`CRUD`操作
 
-> 技术讨论 QQ 群 492238239[（有钱的捧个钱场【点击捐赠】, 没钱的捧个人场）](http://git.oschina.net/uploads/images/2015/1222/211207_0acab44e_12260.png)
+> 技术讨论 QQ 群 576493122[（有钱的捧个钱场【点击捐赠】, 没钱的捧个人场）](http://git.oschina.net/uploads/images/2015/1222/211207_0acab44e_12260.png)
 
 # 优点 | Advantages
 
