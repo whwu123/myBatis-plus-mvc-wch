@@ -89,6 +89,9 @@
 	    <!-- <property name="dbType" value="oracle" /> -->
 	    <!-- 全局表为下划线命名设置 true -->
 	    <!-- <property name="dbColumnUnderline" value="true" /> -->
+        <property name="metaObjectHandler">
+            <bean class="com.baomidou.springmvc.common.MyMetaObjectHandler" />
+        </property>
 	</bean>
 
     <!-- MyBatis 动态扫描  -->

@@ -1,20 +1,20 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : 本机
+ Source Server         : mysql-localhost
  Source Server Type    : MySQL
- Source Server Version : 50714
- Source Host           : 127.0.0.1
- Source Database       : mybatisplus_spring_mvc
+ Source Server Version : 50616
+ Source Host           : localhost
+ Source Database       : mybatis-plus
 
  Target Server Type    : MySQL
- Target Server Version : 50714
+ Target Server Version : 50616
  File Encoding         : utf-8
 
- Date: 10/09/2016 13:56:16 PM
+ Date: 06/25/2017 20:53:49 PM
 */
 
-SET NAMES utf8;
+SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- ----------------------------
@@ -25,6 +25,7 @@ CREATE TABLE `sys_user` (
   `id` bigint(20) NOT NULL COMMENT '用户ID',
   `name` varchar(50) DEFAULT NULL COMMENT '用户名',
   `age` int(3) DEFAULT NULL COMMENT '用户年龄',
+  `ctime` datetime DEFAULT NULL COMMENT '自定义填充的创建时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统用户表';
 
@@ -32,7 +33,7 @@ CREATE TABLE `sys_user` (
 --  Records of `sys_user`
 -- ----------------------------
 BEGIN;
-INSERT INTO `sys_user` VALUES ('784972358981328902', 'Tom', '24'), ('784972358981328903', 'Jammy', '21');
+INSERT INTO `sys_user` VALUES ('784972358981328902', 'Tom', '24', '2017-06-25 20:53:33'), ('784972358981328903', 'Jammy', '21', '2017-06-25 20:53:37');
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
