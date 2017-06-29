@@ -4,7 +4,7 @@ import java.util.Date;
 
 import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.FieldIgnore;
+import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.springmvc.common.SuperEntity;
 
 /**
@@ -26,7 +26,7 @@ public class User extends SuperEntity {
     /**
      * 自定义填充的创建时间
      */
-    @TableField(ignore = FieldIgnore.INSERT)// 该注解插入忽略验证，自动填充
+    @TableField(fill = FieldFill.INSERT)// 该注解插入忽略验证，自动填充
     private Date ctime;
 
     public String getName() {
