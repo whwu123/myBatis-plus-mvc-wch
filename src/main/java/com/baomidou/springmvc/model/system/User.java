@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.baomidou.mybatisplus.enums.FieldFill;
 import com.baomidou.springmvc.common.SuperEntity;
+import com.baomidou.springmvc.model.enums.TypeEnum;
 
 /**
  * 系统用户表
@@ -17,12 +18,14 @@ public class User extends SuperEntity {
      * 用户名
      */
     private String name;
-
     /**
      * 用户年龄
      */
+    private TypeEnum type;
+    /**
+     * 通用枚举测试
+     */
     private Integer age;
-
     /**
      * 自定义填充的创建时间
      */
@@ -43,6 +46,14 @@ public class User extends SuperEntity {
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public TypeEnum getType() {
+        return type;
+    }
+
+    public void setType(TypeEnum type) {
+        this.type = type;
     }
 
     public Date getCtime() {

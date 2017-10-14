@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.baomidou.springmvc.model.enums.TypeEnum;
 import com.baomidou.springmvc.model.system.User;
 import com.baomidou.springmvc.service.system.IUserService;
 
@@ -51,6 +52,7 @@ public class UserController extends BaseController {
     @ResponseBody
     @RequestMapping("save")
     public Object save(User user) {
+        user.setType(TypeEnum.DISABLED);
         if (user.getId() == null) {
             return userService.insert(user) ? renderSuccess("添加成功") : renderError("添加失败");
         } else {
