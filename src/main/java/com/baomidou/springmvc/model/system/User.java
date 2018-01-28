@@ -17,6 +17,7 @@ public class User extends SuperEntity {
     /**
      * 用户名
      */
+    // 这样可以注入 LIKE 查询 @TableField(condition = SqlCondition.LIKE)
     private String name;
     /**
      * 用户年龄
@@ -29,7 +30,7 @@ public class User extends SuperEntity {
     /**
      * 自定义填充的创建时间
      */
-    @TableField(fill = FieldFill.INSERT)// 该注解插入忽略验证，自动填充
+    @TableField(fill = FieldFill.INSERT) // 这样可以注入更新数据库时间 , update = "now()")// 该注解插入忽略验证，自动填充
     private Date ctime;
 
     public String getName() {
