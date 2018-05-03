@@ -19,11 +19,11 @@ public class User extends SuperEntity {
      */
     private String name;
     /**
-     * 用户年龄
+     * 通用枚举测试
      */
     private TypeEnum type;
     /**
-     * 通用枚举测试
+     * 用户年龄
      */
     private Integer age;
     /**
