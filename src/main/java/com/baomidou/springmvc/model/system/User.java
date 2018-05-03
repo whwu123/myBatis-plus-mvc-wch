@@ -20,11 +20,11 @@ public class User extends SuperEntity {
     // 这样可以注入 LIKE 查询 @TableField(condition = SqlCondition.LIKE)
     private String name;
     /**
-     * 用户年龄
+     * 通用枚举测试
      */
     private TypeEnum type;
     /**
-     * 通用枚举测试
+     * 用户年龄
      */
     private Integer age;
     /**
