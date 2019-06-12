@@ -32,7 +32,7 @@ public class ServiceTest {
         List<User> list = iUserService.selectList(new EntityWrapper<User>());
         System.out.println("****************************************");
         for(User u:list){
-            System.out.println(u.getType());
+            System.out.println(u.getName()+"========================");
             Assert.assertNotNull("TypeEnum should not null",u.getType());
         }
         System.out.println("****************************************");
