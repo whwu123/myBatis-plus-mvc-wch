@@ -19,7 +19,7 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>姓名</th>
+                        <th>姓名2</th>
                         <th>年龄</th>
                         <th>类型</th>
                         <th>创建时间</th>
