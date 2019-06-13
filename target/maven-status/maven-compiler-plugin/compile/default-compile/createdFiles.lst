@@ -1,0 +1,12 @@
+com\baomidou\springmvc\common\MyMetaObjectHandler.class
+com\baomidou\springmvc\common\SuperMapper.class
+com\baomidou\springmvc\model\system\User.class
+com\baomidou\springmvc\service\system\impl\UserServiceImpl.class
+com\baomidou\springmvc\mapper\system\UserMapper.class
+com\baomidou\springmvc\controller\UserController.class
+com\baomidou\springmvc\model\enums\TypeEnum.class
+com\baomidou\springmvc\service\system\IUserService.class
+com\baomidou\springmvc\controller\BaseController.class
+com\baomidou\springmvc\common\result\JsonResult.class
+com\baomidou\springmvc\common\SuperEntity.class
+com\baomidou\springmvc\common\utils\StringUtil.class

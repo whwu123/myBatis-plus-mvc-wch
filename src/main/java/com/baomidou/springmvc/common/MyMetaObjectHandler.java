@@ -2,14 +2,14 @@ package com.baomidou.springmvc.common;
 
 import java.util.Date;
 
+import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
 
-import com.baomidou.mybatisplus.mapper.MetaObjectHandler;
 
 /**
  * 自定义填充处理器
  */
-public class MyMetaObjectHandler extends MetaObjectHandler {
+public class MyMetaObjectHandler implements MetaObjectHandler {
 
     @Override
     public void insertFill(MetaObject metaObject) {

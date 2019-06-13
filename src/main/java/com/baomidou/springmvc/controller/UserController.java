@@ -36,7 +36,7 @@ public class UserController extends BaseController {
     @RequestMapping("/")
     public ModelAndView index(ModelAndView modelAndView) {
         modelAndView.setViewName("index");
-        modelAndView.addObject("userList", userService.selectList(null));
+        modelAndView.addObject("userList", userService.list(null));
         return modelAndView;
     }
 
@@ -44,7 +44,7 @@ public class UserController extends BaseController {
     public ModelAndView preSave(ModelAndView modelAndView, @RequestParam(value = "id", required = false) Long id) {
         modelAndView.setViewName("save");
         if (id != null) {
-            modelAndView.addObject("user", userService.selectById(id));
+            modelAndView.addObject("user", userService.getById(id));
         }
         return modelAndView;
     }
@@ -54,7 +54,7 @@ public class UserController extends BaseController {
     public Object save(User user) {
         user.setType(TypeEnum.DISABLED);
         if (user.getId() == null) {
-            return userService.insert(user) ? renderSuccess("添加成功") : renderError("添加失败");
+            return userService.save(user) ? renderSuccess("添加成功") : renderError("添加失败");
         } else {
             return userService.updateById(user) ? renderSuccess("修改成功") : renderError("修改失败");
         }
@@ -63,6 +63,6 @@ public class UserController extends BaseController {
     @ResponseBody
     @RequestMapping("/delete")
     public Object delete(@RequestParam(value = "id", required = false) Long id) {
-        return userService.deleteById(id) ? renderSuccess("删除成功") : renderError("删除失败");
+        return userService.removeById(id) ? renderSuccess("删除成功") : renderError("删除失败");
     }
 }

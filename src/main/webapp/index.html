@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Summernote - Bootstrap 4</title>
+    <!-- include jquery -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+
+    <!-- include libs stylesheets -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.5/umd/popper.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.js"></script>
+
+    <!-- include summernote -->
+    <link rel="stylesheet" href="resources/summernote/dist/summernote-bs4.css">
+    <script type="text/javascript" src="resources/summernote/dist/summernote-bs4.js"></script>
+    <script type="text/javascript" src="resources/summernote/lang/summernote-zh-CN.js"></script>
+   <!-- <link rel="stylesheet" href="examples/example.css">-->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.summernote').summernote({
+                lang: 'zh-CN',
+                height: 500,
+                tabsize: 3,
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['insert', ['link', 'picture', 'table']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+
+                ],
+                lang: 'zh-CN',
+                callbacks:{
+                    onImageUpload: function (files) {
+                        //上传图片到服务器
+                        var files_length = files.length;
+                        //此处循环上传每一个图片
+                        for(var i=0;i<files_length;i++){
+                            sendFile(files[i]);
+                        }
+
+                    },
+                    onMediaDelete: function (target) {
+                        var imgSrc = target[0].currentSrc;
+                        console.info(imgSrc);
+                        console.info(target);
+                        var fileId = target[0].dataset.filename;
+                        console.info(fileId);
+                        var data = new FormData();
+                        data.append("fileId", fileId);
+                        $.ajax({
+                            data: data,
+                            type: "POST",
+                            url: "sysfile/deleteImg",
+                            cache: false,
+                            contentType: false,
+                            processData: false,
+                            dataType : "json",
+                            success: function (data) {
+                                console.log(data);
+                                if(data.status == 200){
+                                    alert("移除图片成功")
+                                }
+                            }
+                        });
+                    }
+
+                }
+
+            });
+
+
+        });
+        //上传图片
+        function sendFile(file){
+            var formdata = new FormData();
+            var fileName = file['name'];
+            formdata.append("file", file);
+            $.ajax({
+                //图片上传出来的url，返回的是图片上传后的路径，http格式
+                url : "sysfile/add.do",
+                type : "POST",
+                data : formdata,
+                cache : false,
+                contentType : false,
+                processData : false,
+                dataType : "json",
+                success: function(result) {
+                    //url:图片路径 filename：图片名称
+                    $('.summernote').summernote('insertImage', result.path,result.fileid);
+                },
+                error:function(){
+                    alert("上传失败");
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h1>Summernote with Bootstrap 4</h1>
+    <p>
+        <span class="badge badge-primary">jQuery v3.3.1</span>
+        <span class="badge badge-info">Bootstrap v4.1.3</span>
+    </p>
+    <div class="summernote"><p>Hello World</p></div>
+</div>
+</body>
+</html>

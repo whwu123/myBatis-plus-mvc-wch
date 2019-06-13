@@ -1,7 +1,7 @@
 package test;
 
-import com.baomidou.mybatisplus.toolkit.IdWorker;
 
+import com.baomidou.mybatisplus.core.toolkit.IdWorker;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

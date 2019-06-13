@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.springmvc.model.system.User;
 import com.baomidou.springmvc.service.system.IUserService;
 
@@ -29,7 +28,7 @@ public class ServiceTest {
 
     @Test
     public void selectTest(){
-        List<User> list = iUserService.selectList(new EntityWrapper<User>());
+        List<User> list = iUserService.list();
         System.out.println("****************************************");
         for(User u:list){
             System.out.println(u.getName()+"========================");
