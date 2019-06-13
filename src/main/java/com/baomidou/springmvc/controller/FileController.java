@@ -73,6 +73,7 @@ public class FileController extends BaseController {
                 fileService.removeById(fileId);
             }
         }
+        System.out.println("aaa");
         return  renderSuccess("删除成功");
     }
 }
